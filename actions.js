@@ -34,12 +34,17 @@ SITESWAP2EDGECOLOR="#35f2f2";
 SITESWAP2NODECOLOR="#35f2f2";
 TRANSITIONCOLOR="#4dab00";
 
-var width = 960,height = 500;
+var width = 900,height = 400;
 
-var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height)
-    .attr("id","svg");
+var svg = d3.select("div#d3-main-canvas")
+   .append("div")
+   .classed("svg-container", true) // Container class to make it responsive.
+   .append("svg")
+   // Responsive SVG needs these 2 attributes and no width and height attr.
+   .attr("preserveAspectRatio", "xMinYMin meet")
+   .attr("viewBox", "0 0 "+width+" "+height)
+   .classed("svg-content-responsive", true) // Class to make it responsive.
+   .attr("id","svg") //mark id
 
     // define arrow markers for graph links
 svg.append('svg:defs').append('svg:marker')
